@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2w-sy18vy@)&zulx(br6(-t2my*!dik&gjef)g%ftg8^2^p06m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['20.127.212.192', 'localhost']
 
 
 # Application definition
@@ -82,15 +82,16 @@ WSGI_APPLICATION = 'pontos_turisticos.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'bd_turismo',
-        'USER': 'root',
-        'PASSWORD': 'Analista', 
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+            'default': {
+                        'ENGINE': 'django.db.backends.mysql',
+                                'NAME': 'dbtur',  # Nome do banco de dados definido no Docker Compose
+                                        'USER': 'root',
+                                                'PASSWORD': 'Analista',  # Senha definida no Docker Compose
+                                                        'HOST': 'db',  # Nome do serviço do contêiner MySQL no Docker Compose
+                                                                'PORT': '3306',
+                                                                    }
+            }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
