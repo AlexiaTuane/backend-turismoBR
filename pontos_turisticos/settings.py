@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2w-sy18vy@)&zulx(br6(-t2my*!dik&gjef)g%ftg8^2^p06m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['20.127.212.192', 'localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -34,22 +34,37 @@ ALLOWED_HOSTS = ['20.127.212.192', 'localhost']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'rest_framework.authtoken',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'atracoes',
     'core',
+    'users',
     'comentarios',
     'avaliacoes',
     'endereco',
    
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
+
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -87,7 +102,7 @@ DATABASES = {
                                 'NAME': 'dbtur',  # Nome do banco de dados definido no Docker Compose
                                         'USER': 'root',
                                                 'PASSWORD': 'Analista',  # Senha definida no Docker Compose
-                                                        'HOST': 'db',  # Nome do serviço do contêiner MySQL no Docker Compose
+                                                        'HOST': '',  # Nome do serviço do contêiner MySQL no Docker Compose
                                                                 'PORT': '3306',
                                                                     }
             }
@@ -115,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
