@@ -70,18 +70,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pontos_turisticos.wsgi.application'
 
-# Database
+# settings.py
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dbtur',
-        'USER': 'root',
-        'PASSWORD': 'Analista',
-        'HOST': 'db',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
     }
 }
-
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
